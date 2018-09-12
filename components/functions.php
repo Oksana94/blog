@@ -8,32 +8,30 @@
 function Connection(){
     static $dbh = null;
     if($dbh !== null) return $dbh;
-    $dbh = new PDO("mysql:host=localhost;dbname=gallery;charset=utf8", "root", "", [
+    $dbh = new PDO("mysql:host=localhost;dbname=myblog;charset=utf8", "root", "", [
         PDO::ATTR_DEFAULT_FETCH_MODE=>PDO::FETCH_ASSOC
     ]);
     return $dbh;
 }
-function getAllImage(){
+function getAllTitle(){
     $dbh = Connection();
-    $stmt = $dbh -> query("Select * from `img`");
+    $stmt = $dbh -> query("Select * from `name`");
     return $stmt->fetchAll();
 }
-function addImage($name, $url){
+function addTitle($name, $cont, $date){
     $dbh = Connection();
     $name = $dbh->quote($name);
-    $url = $dbh->quote($url);
-    $dbh->exec("insert into `img` (`name`, `url`) values ({$name}, {$url})");
+    $cont = $dbh->quote($cont);
+    $date = $dbh->quote($date);
+    $dbh->exec("insert into `titles` (`name`, `url`, `data`) values ({$name}, {$cont}, {$date})");
 }
-function getIdImage($id){
+function getIdTitles($id){
     $dbh = Connection();
-    $stmt = $dbh -> query("Select * from `img` where id = {$id}");
+    $stmt = $dbh -> query("Select * from `titles` where id = {$id}");
     return $stmt->fetch();
 }
-function deleteImage($id){
+function deleteTitles($id){
     $dbh = Connection();
     $id = (int)$id;
-    $dbh->exec("delete from `img` where `id`={$id}");
-}
-function renameImage($id){
-
+    $dbh->exec("delete from `titles` where `id`={$id}");
 }

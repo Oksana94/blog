@@ -6,16 +6,12 @@
  * Time: 19:07
  */
 require_once 'functions.php';
-if(empty($_POST["name"])) die("error");
-
-$tmp_name = $_FILES["img"]["tmp_name"];
-$tmp = explode("/", $_FILES["img"]["type"]);
-$ext = end($tmp);
-$url = "/gallery2/files/".time().".".$ext;
-
-if(move_uploaded_file($tmp_name, $_SERVER["DOCUMENT_ROOT"].$url)){
-    addImage($_POST["name"], $url);
-    header("Location:".$_SERVER["HTTP_REFERER"]);
+$name = $_POST["name"];
+$content = $_POST["content"];
+$date = $_POST["date"];
+if(empty($_POST["name"]) || empty($_POST["content"]) || empty($_POST["date"])) die("error");
+if(addTitle($name, $content, $date)) {
+    echo "verno";
 } else {
-    echo "Error";
+    echo "ne verno";
 }

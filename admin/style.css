@@ -2,8 +2,13 @@
 .menu{ width: 200px; height: 100vh; padding: 20px 0; background: #23282d; position: fixed; top: 0; left: 0; display: flex;
     align-items: center; justify-content: space-between; flex-direction: column;}
 .menu ul{width: 100%;}
-.item a{ display: block; padding: 10px; color: #fff; text-transform: uppercase; }
+.item a{ display: block; padding: 10px 10px 10px 30px; color: #fff; text-transform: uppercase; }
 .item:hover a{ background: #00a4f357}
 .item.active a{ background: #0073aa}
 .logo, .logOut{ color: #fff;}
 .wrap{ width: 100%; height: auto; min-height: 100vh; padding:20px 20px 20px 220px; background:#f1f1f1 }
+.innerMenu a{ text-transform: lowercase; background: #32373c !important; padding: 10px;}
+.wrap-section{ display: none}
+.wrap-section.active{ display: block}
+.wrap-section-input{ width: 100%; display: block; padding: 10px; background: #fff; color: #000; margin: 20px 0; border: 1px solid #23282d}
+.wrap-section-textarea{ background: #fff; height: 200px; padding: 10px;border: 1px solid #23282d; margin: 20px 0; overflow-y: scroll}
