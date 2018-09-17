@@ -37,7 +37,6 @@
     <div class="wrap-section wrap-section__titleAll active" data-target="titleAll">
         <h2>Все записи</h2>
         <div class="wrap-section-content">
-
         </div>
     </div>
     <div class="wrap-section wrap-section__titleCreate" data-target="titleCreate">
@@ -51,6 +50,14 @@
     </div>
     <div class="wrap-section wrap-section__media" data-target="media">
         <h2>Медифайлы</h2>
+        <ul class="media">
+            <li class="media-item"><a href="#media-all">All</a></li>
+            <li class="media-item"><a href="#media-download">Download</a></li>
+        </ul>
+        <div class="media-wrap">
+            <div class="media-all" data-target="media-all"></div>
+            <div class="media-download" data-target="media-download"></div>
+        </div>
     </div>
 </div>
 </body>

@@ -12,3 +12,9 @@
 .wrap-section.active{ display: block}
 .wrap-section-input{ width: 100%; display: block; padding: 10px; background: #fff; color: #000; margin: 20px 0; border: 1px solid #23282d}
 .wrap-section-textarea{ background: #fff; height: 200px; padding: 10px;border: 1px solid #23282d; margin: 20px 0; overflow-y: scroll}
+.wrap-section-content-name{display: flex; justify-content: space-between; padding: 10px 0;border-bottom: 1px solid black;}
+.tools{display: flex;}
+.delete, .rename{ padding: 5px; cursor: pointer; border: 1px solid black;}
+.media{ display: flex;}
+.media-item{ margin-right: 20px;}
+.media-item a{display: block; padding: 10px 20px; background: #fff; border-radius: 10px 10px 0 0; border: 1px solid black;  color: #000;border-bottom: none;}

@@ -1,13 +1,19 @@
 $(document).ready(function (e) {
     $('.item a').on('click', function (e) {
         e.preventDefault();
-        var _this = $(this),
-            item = _this.closest('.item'),
-            dir = _this.attr('href').replace('#', ""),
-            selectSection = $('.wrap-section').filter("[data-target="+dir+"]");
+        navTabs($(this), item, $(".wrap-section"));
+    });
+    $('.media-item a').on('click', function (e) {
+        e.preventDefault();
+        navTabs($(this), item, $(".media-wrap"));
+    });
+    function navTabs(_this, item, container){
+        var dir = _this.attr('href').replace('#', ""),
+            item = _this.parentNode,
+            selectSection =container.filter("[data-target="+dir+"]");
         item.add(selectSection).addClass('active').siblings().removeClass("active");
         if (dir=="titleAll") listTitles();
-    })
+    }
     $('.btnText-btn').on('click', function (e) {
         e.preventDefault();
         var action = $(this).data("action"),
@@ -32,8 +38,23 @@ $(document).ready(function (e) {
         }
     });
     $('.wrap-section-content').on('click', '.delete', function (e) {
-        deleteTitle($(this).closest("p").data('id'));
-    })
+        deleteTitle($(this).closest(".wrap-section-content-name").data('id'));
+    });
+    $('.wrap-section-content').on('click', '.rename', function (e) {
+        var _this = $(this).closest(".wrap-section-content-name"),
+            id = _this.data('id'),
+            name = _this.find('p').text();
+        if(_this.hasClass("renameSend")){
+            renameTitle(name, id);
+            _this.removeClass("renameSend");
+            _this.find('p').attr("contenteditable", "false");
+            $(this).text('rename');
+        } else {
+            _this.addClass("renameSend");
+            _this.find('p').attr("contenteditable", "true");
+            $(this).text('save');
+        }
+    });
     function sendPost(name, content, date){
         $.ajax({
             url:"../components/add.php",
@@ -58,7 +79,7 @@ $(document).ready(function (e) {
                 data = JSON.parse(data);
                 $('.wrap-section-content').empty();
                 for(var i = 0; i<data.length; i++){
-                    $('.wrap-section-content').append("<p data-id='"+data[i].id+"' class='wrap-section-content-name'>"+data[i].name+"<span class='delete'>X</span></p>")
+                    $('.wrap-section-content').append("<div data-id='"+data[i].id+"' class='wrap-section-content-name'><p>"+data[i].name+"</p><div class='tools'><span class='rename'>rename</span><span class='delete'>X</span></div></div>")
                 }
             }
         })
@@ -71,6 +92,18 @@ $(document).ready(function (e) {
             dataType:'html',
             success:function () {
                 alert('delete');
+                listTitles();
+            }
+        })
+    };
+    function renameTitle(name, id){
+        $.ajax({
+            url:"../components/rename.php",
+            type:"POST",
+            data:{name:name, id:id},
+            dataType:'html',
+            success:function () {
+                alert('Change');
                 listTitles();
             }
         })

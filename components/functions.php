@@ -35,3 +35,9 @@ function deleteTitles($id){
     $id = (int)$id;
     $dbh->exec("delete from `titles` where `id`={$id}");
 }
+function renameTitle($name, $id){
+    $dbh = Connection();
+    $name = $dbh->quote($name);
+    $id = (int)$id;
+    $dbh->exec("UPDATE `titles` SET `name`= {$name} WHERE `id` = {$id}");
+}
