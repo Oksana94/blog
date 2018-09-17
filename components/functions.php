@@ -15,7 +15,7 @@ function Connection(){
 }
 function getAllTitle(){
     $dbh = Connection();
-    $stmt = $dbh -> query("Select * from `name`");
+    $stmt = $dbh -> query("Select * from `titles`");
     return $stmt->fetchAll();
 }
 function addTitle($name, $cont, $date){
@@ -23,7 +23,7 @@ function addTitle($name, $cont, $date){
     $name = $dbh->quote($name);
     $cont = $dbh->quote($cont);
     $date = $dbh->quote($date);
-    $dbh->exec("insert into `titles` (`name`, `url`, `data`) values ({$name}, {$cont}, {$date})");
+    $dbh->exec("insert into `titles` (`name`, `content`, `data`) values ({$name}, {$cont}, {$date})");
 }
 function getIdTitles($id){
     $dbh = Connection();

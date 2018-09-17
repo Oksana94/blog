@@ -6,5 +6,4 @@
  * Time: 19:07
  */
 require_once 'functions.php';
-if(empty($_POST["id"])) die("Erroe");
-deleteTitles($_POST["id"]);
+echo json_encode(getAllTitle());

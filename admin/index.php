@@ -36,6 +36,9 @@
 <div class="wrap">
     <div class="wrap-section wrap-section__titleAll active" data-target="titleAll">
         <h2>Все записи</h2>
+        <div class="wrap-section-content">
+
+        </div>
     </div>
     <div class="wrap-section wrap-section__titleCreate" data-target="titleCreate">
         <h2>Создать запись</h2>
