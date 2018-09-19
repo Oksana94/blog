@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1
--- Время создания: Сен 12 2018 г., 20:04
+-- Время создания: Сен 19 2018 г., 20:34
 -- Версия сервера: 10.1.28-MariaDB
 -- Версия PHP: 5.6.32
 
@@ -25,6 +25,24 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Структура таблицы `img`
+--
+
+CREATE TABLE `img` (
+  `id` int(255) NOT NULL,
+  `path` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Дамп данных таблицы `img`
+--
+
+INSERT INTO `img` (`id`, `path`) VALUES
+(1, 'C:\\xampp5\\htdocs\\blog\\uploads\\1196.jpg');
+
+-- --------------------------------------------------------
+
+--
 -- Структура таблицы `titles`
 --
 
@@ -36,8 +54,23 @@ CREATE TABLE `titles` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf32;
 
 --
+-- Дамп данных таблицы `titles`
+--
+
+INSERT INTO `titles` (`id`, `name`, `content`, `data`) VALUES
+(6, 'dffdgdfgdfgdfsgafdgdfghfdhdfahdfahadfhadSD', 'fsdfsdfSF', '2018-09-17'),
+(8, 'Vasya', 'fsdasga', '2018-09-17'),
+(9, 'dfghdfg', 'dfagfdagadfgadf', '2018-09-17');
+
+--
 -- Индексы сохранённых таблиц
 --
+
+--
+-- Индексы таблицы `img`
+--
+ALTER TABLE `img`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Индексы таблицы `titles`
@@ -50,10 +83,16 @@ ALTER TABLE `titles`
 --
 
 --
+-- AUTO_INCREMENT для таблицы `img`
+--
+ALTER TABLE `img`
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT для таблицы `titles`
 --
 ALTER TABLE `titles`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

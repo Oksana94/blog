@@ -18,6 +18,16 @@ function getAllTitle(){
     $stmt = $dbh -> query("Select * from `titles`");
     return $stmt->fetchAll();
 }
+function getAllImg(){
+    $dbh = Connection();
+    $stmt = $dbh -> query("Select * from `img`");
+    return $stmt->fetchAll();
+}
+function addImg($name){
+    $dbh = Connection();
+    $name = $dbh->quote($name);
+    $dbh->exec("insert into `img` (`path`) values ({$name})");
+}
 function addTitle($name, $cont, $date){
     $dbh = Connection();
     $name = $dbh->quote($name);

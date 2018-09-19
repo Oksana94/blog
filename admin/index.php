@@ -22,19 +22,19 @@
 <nav class="menu">
     <a href="#" class="logo">Panda</a>
     <ul>
-        <li class="item active"><a href="#titleAll">Записи</a>
+        <li class="item "><a href="#titleAll">Записи</a>
             <ul class="innerMenu">
                 <li><a href="#titleAll">Все записи</a></li>
                 <li><a href="#titleCreate">Создать запись</a></li>
             </ul>
         </li>
-        <li class="item"><a href="#media">Медифайлы</a></li>
+        <li class="item active"><a href="#media">Медифайлы</a></li>
         <li class="item"><a href="">Страница</a></li>
     </ul>
     <a href="#" class="logOut">Выход</a>
 </nav>
 <div class="wrap">
-    <div class="wrap-section wrap-section__titleAll active" data-target="titleAll">
+    <div class="wrap-section wrap-section__titleAll " data-target="titleAll">
         <h2>Все записи</h2>
         <div class="wrap-section-content">
         </div>
@@ -48,15 +48,23 @@
         <p class="wrap-section-textarea" contenteditable="true"></p>
         <a href="#" class="save">Опубликовать</a>
     </div>
-    <div class="wrap-section wrap-section__media" data-target="media">
+    <div class="wrap-section wrap-section__media active" data-target="media">
         <h2>Медифайлы</h2>
         <ul class="media">
-            <li class="media-item"><a href="#media-all">All</a></li>
-            <li class="media-item"><a href="#media-download">Download</a></li>
+            <li class="media-item "><a href="#media-all">All</a></li>
+            <li class="media-item active"><a href="#media-download">Download</a></li>
         </ul>
         <div class="media-wrap">
-            <div class="media-all" data-target="media-all"></div>
-            <div class="media-download" data-target="media-download"></div>
+            <div class="media-wrap-section media-all " data-target="media-all">
+                <h3>All</h3>
+            </div>
+            <div class="media-wrap-section media-download active" data-target="media-download">
+                <h3>Download</h3>
+                <form action="#">
+                    <input type="file" class="upload">
+                    <input type="submit" class="uploadSend">
+                </form>
+            </div>
         </div>
     </div>
 </div>

@@ -8,8 +8,8 @@
 .logo, .logOut{ color: #fff;}
 .wrap{ width: 100%; height: auto; min-height: 100vh; padding:20px 20px 20px 220px; background:#f1f1f1 }
 .innerMenu a{ text-transform: lowercase; background: #32373c !important; padding: 10px;}
-.wrap-section{ display: none}
-.wrap-section.active{ display: block}
+.wrap-section, .media-wrap-section{ display: none}
+.wrap-section.active, .media-wrap-section.active{ display: block}
 .wrap-section-input{ width: 100%; display: block; padding: 10px; background: #fff; color: #000; margin: 20px 0; border: 1px solid #23282d}
 .wrap-section-textarea{ background: #fff; height: 200px; padding: 10px;border: 1px solid #23282d; margin: 20px 0; overflow-y: scroll}
 .wrap-section-content-name{display: flex; justify-content: space-between; padding: 10px 0;border-bottom: 1px solid black;}
@@ -18,3 +18,5 @@
 .media{ display: flex;}
 .media-item{ margin-right: 20px;}
 .media-item a{display: block; padding: 10px 20px; background: #fff; border-radius: 10px 10px 0 0; border: 1px solid black;  color: #000;border-bottom: none;}
+.media-item.active a{z-index: 100; position: relative;}
+.media-wrap{ padding: 10px; background: #fff; border: 1px solid black; margin-top: -1px; position: relative; z-index: 10;}

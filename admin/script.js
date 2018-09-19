@@ -1,19 +1,50 @@
 $(document).ready(function (e) {
+    //AjaxImg
+    var files;
+    $('.upload').on('change', function () {
+        files = this.files;
+    });
+    $('.uploadSend').on('click', function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+        var data = new FormData();
+        $.each(files, function (key, value) {
+            data.append(key, value);
+        });
+        console.log(files);
+        console.log(data);
+        $.ajax({
+            url:"../components/uploadImg.php?uploadfiles",
+            type:"POST",
+            data:data,
+            dataType:"json",
+            processData: false,
+            contentType: false,
+            success:function (res) {
+                console.log(res);
+                if(res.error=="undefined"){
+                    var files_path = res.files;
+                    $.each(files_path, function (key, value) {
+                        $('.media-all').append("<div class='item-Img'><img src='"+value+"'><span class='delImg'>X</span></div>");
+                    });
+                } else {
+                    console.log("Ошибка ответа сервера: "+res.error);
+                }
+            },
+            error:function (jqXHR, textStatus, errorThrown) {
+                console.log("Ошибка Ajax запроса: "+textStatus);
+            }
+        })
+    })
+    //------------
     $('.item a').on('click', function (e) {
         e.preventDefault();
-        navTabs($(this), item, $(".wrap-section"));
+        navTabs($(this), $(".wrap-section"));
     });
     $('.media-item a').on('click', function (e) {
         e.preventDefault();
-        navTabs($(this), item, $(".media-wrap"));
+        navTabs($(this), $(".media-wrap-section"));
     });
-    function navTabs(_this, item, container){
-        var dir = _this.attr('href').replace('#', ""),
-            item = _this.parentNode,
-            selectSection =container.filter("[data-target="+dir+"]");
-        item.add(selectSection).addClass('active').siblings().removeClass("active");
-        if (dir=="titleAll") listTitles();
-    }
     $('.btnText-btn').on('click', function (e) {
         e.preventDefault();
         var action = $(this).data("action"),
@@ -108,5 +139,12 @@ $(document).ready(function (e) {
             }
         })
     };
+    function navTabs(_this, container){
+        var dir = _this.attr('href').replace('#', ""),
+            item = _this.parent(),
+            selectSection = container.filter("[data-target="+dir+"]");
+        item.add(selectSection).addClass('active').siblings().removeClass("active");
+        if (dir=="titleAll") listTitles();
+    }
     listTitles();
 });
