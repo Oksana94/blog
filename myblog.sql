@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1
--- Время создания: Сен 19 2018 г., 20:34
+-- Время создания: Сен 24 2018 г., 20:17
 -- Версия сервера: 10.1.28-MariaDB
 -- Версия PHP: 5.6.32
 
@@ -38,7 +38,22 @@ CREATE TABLE `img` (
 --
 
 INSERT INTO `img` (`id`, `path`) VALUES
-(1, 'C:\\xampp5\\htdocs\\blog\\uploads\\1196.jpg');
+(17, '../uploads/2018-07-03_21-06-08_1530641680.png'),
+(18, '../uploads/150314846514562633.jpg'),
+(19, '../uploads/150314846514562633.jpg');
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `page`
+--
+
+CREATE TABLE `page` (
+  `id` int(255) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `content` varchar(255) NOT NULL,
+  `alias` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -73,6 +88,12 @@ ALTER TABLE `img`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Индексы таблицы `page`
+--
+ALTER TABLE `page`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Индексы таблицы `titles`
 --
 ALTER TABLE `titles`
@@ -86,7 +107,13 @@ ALTER TABLE `titles`
 -- AUTO_INCREMENT для таблицы `img`
 --
 ALTER TABLE `img`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+
+--
+-- AUTO_INCREMENT для таблицы `page`
+--
+ALTER TABLE `page`
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT для таблицы `titles`

@@ -44,6 +44,7 @@
         <input type="text" class="wrap-section-input" name="name">
         <div class="wrap-section-btnText">
             <input type="button" class="btnText-btn btnText-btn__bold" value="B" data-action="bold">
+            <input type="button" class="btnText-btn btnText-btn__addImg" value="img" data-action="insertImage">
         </div>
         <p class="wrap-section-textarea" contenteditable="true"></p>
         <a href="#" class="save">Опубликовать</a>

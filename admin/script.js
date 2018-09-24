@@ -48,7 +48,11 @@ $(document).ready(function (e) {
         var action = $(this).data("action"),
             aValueArgument = $(this).val(),
             aShowDefaultUI = false;
-        document.execCommand(action, aShowDefaultUI, aValueArgument)
+        if(action=="insertImage"){
+            //popap path
+            aValueArgument = "../uploads/150314846514562633.jpg";
+        }
+        document.execCommand(action, aShowDefaultUI, aValueArgument);
     });
     $('.save').on('click', function (e) {
         e.preventDefault();
@@ -123,7 +127,7 @@ $(document).ready(function (e) {
                 data = JSON.parse(data);
                 $('.media-all').empty();
                 for(var i = 0; i<data.length; i++){
-                    $('.media-all').append("<div class='item-Img'><img src='"+value+"'><span class='delImg'>X</span></div>");
+                    $('.media-all').append("<div class='item-Img'><img src='"+data[i].path+"' data-id='"+data[i].id+"'><span class='delImg'>X</span></div>");
                 }
             }
         })
