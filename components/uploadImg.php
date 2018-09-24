@@ -14,8 +14,8 @@ if(isset($_GET['uploadfiles'])){
     if(!is_dir($uploaddir)) mkdir($uploaddir, 0777);
     foreach ($_FILES as $file){
         if(move_uploaded_file($file['tmp_name'], $uploaddir . basename($file['name']))){
-            $files[]=realpath($uploaddir . $file["name"]);
-            addImg(realpath($uploaddir . $file["name"]));
+            $files[]=$uploaddir . $file["name"];
+            addImg($uploaddir . $file["name"]);
         } else {
             $error = true;
         }

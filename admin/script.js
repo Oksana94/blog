@@ -11,8 +11,6 @@ $(document).ready(function (e) {
         $.each(files, function (key, value) {
             data.append(key, value);
         });
-        console.log(files);
-        console.log(data);
         $.ajax({
             url:"../components/uploadImg.php?uploadfiles",
             type:"POST",
@@ -22,7 +20,7 @@ $(document).ready(function (e) {
             contentType: false,
             success:function (res) {
                 console.log(res);
-                if(res.error=="undefined"){
+                if(typeof res.error==="undefined"){
                     var files_path = res.files;
                     $.each(files_path, function (key, value) {
                         $('.media-all').append("<div class='item-Img'><img src='"+value+"'><span class='delImg'>X</span></div>");
@@ -115,6 +113,21 @@ $(document).ready(function (e) {
             }
         })
     };
+    function listImg(){
+        $.ajax({
+            url:"../components/listImg.php",
+            type:"POST",
+            data:{},
+            dataType:'html',
+            success:function (data) {
+                data = JSON.parse(data);
+                $('.media-all').empty();
+                for(var i = 0; i<data.length; i++){
+                    $('.media-all').append("<div class='item-Img'><img src='"+value+"'><span class='delImg'>X</span></div>");
+                }
+            }
+        })
+    };
     function deleteTitle(id){
         $.ajax({
             url:"../components/delete.php",
@@ -147,4 +160,5 @@ $(document).ready(function (e) {
         if (dir=="titleAll") listTitles();
     }
     listTitles();
+    listImg();
 });

@@ -20,3 +20,5 @@
 .media-item a{display: block; padding: 10px 20px; background: #fff; border-radius: 10px 10px 0 0; border: 1px solid black;  color: #000;border-bottom: none;}
 .media-item.active a{z-index: 100; position: relative;}
 .media-wrap{ padding: 10px; background: #fff; border: 1px solid black; margin-top: -1px; position: relative; z-index: 10;}
+.item-Img{ width: 150px; margin-right: 20px; }
+.item-Img img{ width: 100%;}

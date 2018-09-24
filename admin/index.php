@@ -57,6 +57,7 @@
         <div class="media-wrap">
             <div class="media-wrap-section media-all " data-target="media-all">
                 <h3>All</h3>
+
             </div>
             <div class="media-wrap-section media-download active" data-target="media-download">
                 <h3>Download</h3>
